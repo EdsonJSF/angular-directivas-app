@@ -1,16 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class AgregarComponent implements OnInit {
+export class AgregarComponent {
+  miFormulario: FormGroup = this.fb.group({
+    nombre: ['', [Validators.required]],
+  });
 
-  constructor() { }
+  constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {
+  validFormByName(name: string) {
+    const invalid =
+      this.miFormulario.get(name)?.invalid &&
+      this.miFormulario.get(name)?.touched;
+
+    return invalid || false;
   }
-
 }
