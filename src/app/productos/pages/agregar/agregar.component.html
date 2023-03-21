@@ -12,9 +12,9 @@
     </div>
 
     <div class="col-auto">
-      <span class="form-text" *ngIf="validFormByName('nombre')"
-        >Este campo es requerido</span
-      >
+      <span class="form-text" *ngIf="validFormByName('nombre')" appErrorMsg>
+        Este campo es requerido
+      </span>
     </div>
   </div>
 
