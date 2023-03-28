@@ -17,13 +17,13 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
   private _mensaje = 'Este campo es requerido';
 
   @Input() set color(valor: string) {
-    this.htmlElement.nativeElement.style.color = valor;
     this._color = valor;
+    this.setColor();
   }
 
   @Input() set mensaje(valor: string) {
-    this.htmlElement.nativeElement.innerText = valor;
     this._mensaje = valor;
+    this.setMensaje();
   }
 
   constructor(private el: ElementRef<HTMLElement>) {
@@ -32,6 +32,8 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.setEstilo();
+    this.setColor();
+    this.setMensaje();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -49,11 +51,11 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
     this.htmlElement.nativeElement.classList.add('form-text');
   }
 
-  // setColor() {
-  //   this.htmlElement.nativeElement.style.color = this.color;
-  // }
+  setColor() {
+    this.htmlElement.nativeElement.style.color = this._color;
+  }
 
-  // setMensaje() {
-  //   this.htmlElement.nativeElement.innerText = this.mensaje;
-  // }
+  setMensaje() {
+    this.htmlElement.nativeElement.innerText = this._mensaje;
+  }
 }

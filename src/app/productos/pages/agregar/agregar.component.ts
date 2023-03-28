@@ -11,8 +11,8 @@ export class AgregarComponent {
     nombre: ['', [Validators.required]],
   });
 
-  texto: string = 'Debe de ingresar este campo';
-  color: string = 'red';
+  texto: string = 'Desde Componente';
+  color: string = 'green';
 
   constructor(private fb: FormBuilder) {}
 
