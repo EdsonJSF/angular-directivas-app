@@ -18,8 +18,8 @@ export class AgregarComponent {
 
   validFormByName(name: string) {
     const invalid =
-      this.miFormulario.get(name)?.invalid &&
-      this.miFormulario.get(name)?.touched;
+      this.miFormulario.get(name)?.invalid
+      // && this.miFormulario.get(name)?.touched;
 
     return invalid || false;
   }

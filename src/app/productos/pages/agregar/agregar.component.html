@@ -14,7 +14,12 @@
     </div>
 
     <div class="col-auto">
-      <span appErrorMsg [mensaje]="texto" [color]="color"></span>
+      <span
+        appErrorMsg
+        [mensaje]="texto"
+        [color]="color"
+        [valido]="validFormByName('nombre')"
+      ></span>
     </div>
   </div>
 

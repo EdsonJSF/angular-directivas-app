@@ -26,6 +26,14 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
     this.setMensaje();
   }
 
+  @Input() set valido(invalid: boolean) {
+    if (invalid) {
+      this.htmlElement.nativeElement.classList.add('d-none');
+    } else {
+      this.htmlElement.nativeElement.classList.remove('d-none');
+    }
+  }
+
   constructor(private el: ElementRef<HTMLElement>) {
     this.htmlElement = el;
   }
