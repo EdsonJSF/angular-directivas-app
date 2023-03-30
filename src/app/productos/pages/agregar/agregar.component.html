@@ -18,7 +18,7 @@
         appErrorMsg
         [mensaje]="texto"
         [color]="color"
-        [valido]="validFormByName('nombre')"
+        [valido]="!validFormByName('nombre')"
       ></span>
     </div>
   </div>
@@ -37,6 +37,13 @@
 </form>
 
 <h3 class="mt-5">Formulario</h3>
-
 <pre>Valid: {{ miFormulario.value | json }}</pre>
 <pre>Valid: {{ miFormulario.valid }}</pre>
+
+<div class="row mt-5" *appCustomIf="miFormulario.valid">
+  <div class="col">
+    <div class="alert alert-primary" >
+      Todo OK!
+    </div>
+  </div>
+</div>
